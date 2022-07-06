@@ -40,12 +40,12 @@
         .then(res => res.json())
         .then(json => {
             json.products.forEach(item => {
-                var item = template.cloneNode(true);
-                item.classList.remove('template');
-                item.querySelector("image").src = item.images[0];
-                item.querySelector("name").textContent = item.brand;
-                item.querySelector("price").textContent = item.price;
-                box.appendChild(item);
+                var product = template.cloneNode(true);
+                product.classList.remove('template');
+                product.querySelector("image").src = item.images[0];
+                product.querySelector("name").textContent = item.brand;
+                product.querySelector("price").textContent = item.price;
+                box.appendChild(product);
             });
         });
     </script>
