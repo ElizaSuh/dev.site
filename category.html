@@ -21,9 +21,9 @@
 <body>
 	<div id="root">
 		<div>Category page</div>
-		<div class="child" id="one" style="display:flex">
+		<div class="child" id="one" style="display:flex;flex-wrap: wrap;justify-content: space-between;">
             <div class="items-wrapper template" style="max-width:300px">
-                <img class="image" src="" style="width:100%">
+                <img class="image" src="" style="width:100%; max-height: 150px;">
                 <p class="name"></p>
                 <p class="price"></p>
             </div>
@@ -45,6 +45,7 @@
                 product.querySelector(".image").src = item.images[0];
                 product.querySelector(".name").textContent = item.brand;
                 product.querySelector(".price").textContent = item.price;
+                template.setAttribute("display","none");
                 box.appendChild(product);
             });
         });
