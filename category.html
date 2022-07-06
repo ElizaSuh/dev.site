@@ -42,9 +42,9 @@
             json.products.forEach(item => {
                 var product = template.cloneNode(true);
                 product.classList.remove('template');
-                product.querySelector("image").src = item.images[0];
-                product.querySelector("name").textContent = item.brand;
-                product.querySelector("price").textContent = item.price;
+                product.querySelector(".image").src = item.images[0];
+                product.querySelector(".name").textContent = item.brand;
+                product.querySelector(".price").textContent = item.price;
                 box.appendChild(product);
             });
         });
