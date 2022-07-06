@@ -16,11 +16,6 @@
 	<script type="text/javascript">
 		window.DY = window.DY || {}; 
 		DY.recommendationContext = { type: "CATEGORY", data:["electronics"]};
-		var data;
-
-		fetch('https://dummyjson.com/products')
-		.then(res => res.json())
-		.then(json => data = json);
 	</script>
 	 
 </head>
@@ -36,9 +31,13 @@
             <script>
                 var box = document.getElementById('one');
                 var template = document.querySelector('.items-wrapper.template');
-                data.products.forEach(item => {
-                    var item = template.cloneNode(true);
-                    box.appendChild(item);
+                fetch('https://dummyjson.com/products')
+                .then(res => res.json())
+                .then(json => {
+                    json.products.forEach(item => {
+                        var item = template.cloneNode(true);
+                        box.appendChild(item);
+                    });
                 });
             </script>
 		</div>
