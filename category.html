@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dev site</title>
+	<link rel="preconnect" href="//cdn-eu.dynamicyield.com">
+	<link rel="preconnect" href="//st-eu.dynamicyield.com">
+	<link rel="preconnect" href="//rcom-eu.dynamicyield.com">
+	<link rel="dns-prefetch" href="//cdn-eu.dynamicyield.com">
+	<link rel="dns-prefetch" href="//st-eu.dynamicyield.com">
+	<link rel="dns-prefetch" href="//rcom-eu.dynamicyield.com">
+	<script type="text/javascript" src="//cdn-eu.dynamicyield.com/api/9878118/api_dynamic.js"></script>
+	<script type="text/javascript" src="//cdn-eu.dynamicyield.com/api/9878118/api_static.js"></script>
+	
+	<script type="text/javascript">
+		window.DY = window.DY || {}; 
+		DY.recommendationContext = { type: "CATEGORY", data:["electronics"]};
+		var data;
+
+		fetch('https://dummyjson.com/products')
+		.then(res => res.json())
+		.then(json => data = json);
+	</script>
+	 
+</head>
+<body>
+	<div id="root">
+		<div>Category page</div>
+		<div class="child" id="one" style="display:flex">
+			<div class="items-wrapper template" style="max-width:300px">
+                <img src="" style="width:100%">
+                <p class="name"></p>
+                <p class="price"></p>
+            </div>
+            <script>
+                var box = document.getElementById('one');
+                var template = document.querySelector('.items-wrapper.template');
+                data.forEach(item => {
+                    var item = template.cloneNode(true);
+                    box.appendChild(item);
+                });
+            </script>
+		</div>
+		<div class="child" id="two"></div>
+		<div class="child" id="three"></div>
+		<div class="child" id="four"></div>
+	</div>
+
+</body>
+</html>
