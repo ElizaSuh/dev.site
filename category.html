@@ -36,7 +36,7 @@
             <script>
                 var box = document.getElementById('one');
                 var template = document.querySelector('.items-wrapper.template');
-                data.forEach(item => {
+                data.products.forEach(item => {
                     var item = template.cloneNode(true);
                     box.appendChild(item);
                 });
