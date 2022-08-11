@@ -41,7 +41,7 @@ body {
     width: 100%;
 }
 
-#one.catalog {
+#one.catalog, #one.product {
     height: 100%;
 }
 
@@ -50,11 +50,7 @@ body {
     justify-content: space-between;
 }
 
-#one .image {
-    width: 45%
-}
-
-#one .info {
+#one .image, #one .info  {
     width: 45%
 }
 
