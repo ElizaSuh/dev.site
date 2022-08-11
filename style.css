@@ -34,7 +34,7 @@ body {
 
 #one {
     height: 100%;
-    verflow: hidden;
+    overflow: hidden;
 }
 
 #one.home {
