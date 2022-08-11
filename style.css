@@ -47,11 +47,20 @@ body {
     width: 100%;
 }
 
+.product-wrapper.category{
+    flex-wrap: wrap;
+}
+
 .product-wrapper .product {
     width: 20%;
     color: black;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+
+.product-wrapper.category .product {
+    margin: 0 10px;
 }
 
 .product-wrapper .product:hover {
