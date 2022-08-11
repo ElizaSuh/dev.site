@@ -56,3 +56,11 @@ body {
     height: 70%;
     object-fit: cover;
 }
+
+.text-with-backgroud {
+    background-image: url(https://images.unsplash.com/photo-1660079211804-272ac5c22386?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80);
+    background-position: center;
+    padding: 150px 0;
+    text-align: center;
+    color: white;
+}
