@@ -4,6 +4,11 @@ body {
     font-size: 15px;
 }
 
+#root {
+    width: 80%;
+    margin: 0 auto;
+}
+
 #navigation {
     display: flex;
     justify-content: space-evenly;
@@ -15,4 +20,37 @@ body {
 
 #navigation a {
     color: black;
+}
+
+.section {
+    margin: 20px 0;
+    text-align: justify;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#one {
+    height: 400px;
+    overflow: hidden;
+}
+
+#one img {
+    width: 100%;
+}
+
+.product-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.product-wrapper .product {
+    width: 20%;
+}
+
+.product-wrapper .product img {
+    width: 100%;
 }
