@@ -33,16 +33,16 @@ body {
 }
 
 #one {
+    height: 100%;
+    verflow: hidden;
+}
+
+#one.home {
     height: 400px;
-    overflow: hidden;
 }
 
 #one img {
     width: 100%;
-}
-
-#one.catalog, #one.product {
-    height: 100%;
 }
 
 #one .product-page {
