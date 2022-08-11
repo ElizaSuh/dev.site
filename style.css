@@ -58,6 +58,22 @@ body {
     width: 45%
 }
 
+#one .info button {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    background-color: black;
+    border: none;
+    margin: 20px 0;
+}
+
+#one .info button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;v
+}
+
 .product-wrapper {
     display: flex;
     justify-content: space-evenly;
