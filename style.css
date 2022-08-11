@@ -41,6 +41,11 @@ body {
     width: 100%;
 }
 
+#one.catalog {
+    height: 100%;
+}
+
+
 .product-wrapper {
     display: flex;
     justify-content: space-evenly;
