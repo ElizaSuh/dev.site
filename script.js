@@ -16,7 +16,7 @@ if (productInCart) {
 if (button.classList.contains("checkout")) {
 	button.addEventListener("click", () => {
 		localStorage.removeItem('2053266');
-		window.location.href="file:///Users/e.suhareva/Dev/demo-page/index.html";
+		window.location.href="./index.html";
 	})
 } else {
 	button.addEventListener("click", () => {
