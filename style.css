@@ -45,6 +45,18 @@ body {
     height: 100%;
 }
 
+#one .product-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+#one .image {
+    width: 45%
+}
+
+#one .info {
+    width: 45%
+}
 
 .product-wrapper {
     display: flex;
