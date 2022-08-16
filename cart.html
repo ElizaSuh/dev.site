@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<!-- Dynamic Yield -->
 	<script type="text/javascript">
-		window.DY = window.DY || {}; 
-		DY.recommendationContext = { type: "CART", data:[]};
+		window.DY = window.DY || {};
+		DY.recommendationContext = { type: "CART", data: [] };
 	</script>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Dev site</title>
@@ -19,64 +20,66 @@
 	<script type="text/javascript" src="//cdn-eu.dynamicyield.com/api/9878905/api_dynamic.js"></script>
 	<script type="text/javascript" src="//cdn-eu.dynamicyield.com/api/9878905/api_static.js"></script>
 	<!-- End Dynamic Yield -->
-	
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-JT6MLHT9N0"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	  gtag('config', 'G-JT6MLHT9N0');
+		gtag('config', 'G-JT6MLHT9N0');
 	</script>
-	
- 	<!-- Adobe Target -->
-		<link rel="preconnect" href="//comwrapemeapartnersa.tt.omtrdc.net"> 
-        <link rel="dns-prefetch" href="//comwrapemeapartnersa.tt.omtrdc.net"> 
 
-        <script> 
-            var digitalData = { 
-                "page": { 
-                    "pageInfo": { 
-                        "pageName": "Catalog" 
-                    } 
-                } 
-            }; 
-        </script> 
+	<!-- Adobe Target -->
+	<link rel="preconnect" href="//comwrapemeapartnersa.tt.omtrdc.net">
+	<link rel="dns-prefetch" href="//comwrapemeapartnersa.tt.omtrdc.net">
 
-        <script> 
-            targetPageParams = function() { 
-                return { 
-                    "a": 1, 
-                    "b": 2, 
-                    "pageName": digitalData.page.pageInfo.pageName, 
-                    "profile": { 
-                        "age": 30, 
-                        "country": { 
-                            "city": "Berlin" 
-                        } 
-                    },
-		    "at_property": "76d3bd0c-7425-da8c-205a-04750feb5cce"
-                };
-            };
-		window.targetGlobalSettings = {  
-		   "cookieDomain": "elizasuh.github.io"
+	<script>
+		var digitalData = {
+			"page": {
+				"pageInfo": {
+					"pageName": "Cart"
+				}
+			}
+		}; 
+	</script>
+
+	<script>
+		targetPageParams = function () {
+			return {
+				"a": 1,
+				"b": 2,
+				"pageName": digitalData.page.pageInfo.pageName,
+				"profile": {
+					"age": Math.floor(Math.random() * 100),
+					"country": {
+						"city": "Germany"
+					}
+				},
+				"at_property": "76d3bd0c-7425-da8c-205a-04750feb5cce"
+			};
 		};
-        </script> 
+		window.targetGlobalSettings = {
+			"cookieDomain": "elizasuh.github.io"
+		};
+	</script>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-        <script src="at.js"></script> 
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+	<script src="at.js"></script>
 	<!-- End Adobe Target -->
 
 	<link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
 	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL3JQJC"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL3JQJC" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-	
+
 	<div id="root">
 		<div class="" id="navigation">
 			<span class="nav-item"><a href="./index.html">Home</a></span>
@@ -90,7 +93,8 @@
 		<div class="section cart" id="one">
 			<div class="cart-state">
 				<div class="product-in-cart">
-					<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80">
+					<img
+						src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80">
 					<div class="name">EOS 500D body</div>
 					<div class="price"></div>
 					<div class="quantity"></div>
@@ -109,4 +113,5 @@
 
 	<script src="./script.js"></script>
 </body>
+
 </html>
