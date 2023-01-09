@@ -20,7 +20,7 @@
 		window._uxa = window._uxa || [];
 		window._uxa.push(['setCustomVariable', 1, "itemsInCart", itemsInCart]);
 		window._uxa.push(['setCustomVariable', 2, "pageType", DY.recommendationContext.type]);
-		window._uxa.push(['setCustomVariable', 3, "categoryPath", DY.recommendationContext.data.join(",")]);
+		window._uxa.push(['setCustomVariable', 3, "categoryPath", DY.recommendationContext.data.join(",") || "None"]);
 		window._uxa.push(['setCustomVariable', 4, "isLoggedIn", isLoggedIn]);
 	</script>
 
