@@ -7,6 +7,22 @@
 		window.DY = window.DY || {};
 		DY.recommendationContext = { type: "CATEGORY", data: ["Photography", "Cameras"] };
 	</script>
+	
+	<!-- custom parameters -->
+	<script type="text/javascript">
+		var itemsInCart = sessionStorage.getItem("itemsInCart") || Math.floor(Math.random() * 10);
+		sessionStorage.setItem("itemsInCart", itemsInCart);
+
+		var isLoggedIn = sessionStorage.getItem("isLoggedIn") || itemsInCart%2 ? "true" : "false"
+		sessionStorage.setItem("isLoggedIn", isLoggedIn);
+
+
+		window._uxa = window._uxa || [];
+		window._uxa.push(['setCustomVariable', 1, "itemsInCart", itemsInCart]);
+		window._uxa.push(['setCustomVariable', 2, "pageType", DY.recommendationContext.type]);
+		window._uxa.push(['setCustomVariable', 3, "categoryPath", DY.recommendationContext.data.join(",") || "None"]);
+		window._uxa.push(['setCustomVariable', 4, "isLoggedIn", isLoggedIn]);
+	</script>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
