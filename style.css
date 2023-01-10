@@ -132,6 +132,11 @@ body {
     text-align: center;
 }
 
+.product-in-cart .no-items-found div {
+    width: 100%;
+    font-size: 1.5rem;
+}
+
 #one .product-in-cart img {
     height: 150px;
     width: auto;
