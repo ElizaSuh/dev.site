@@ -132,7 +132,7 @@ body {
     text-align: center;
 }
 
-.product-in-cart .no-items-found div {
+.product-in-cart.no-items-found div {
     width: 100%;
     font-size: 1.5rem;
 }
