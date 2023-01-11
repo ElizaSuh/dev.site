@@ -12,6 +12,7 @@ if (root.querySelector(".product-in-cart.no-items-found")) {
 if (checkStorageForItem()) {
 	var image = productInCart.querySelector("img");
 	var name = productInCart.querySelector(".name");
+	console.log(name);
 	var price = productInCart.querySelector(".price");
 	var quantity = productInCart.querySelector(".quantity");
 	fillCartData(image, name, price, quantity);
@@ -53,6 +54,7 @@ function checkStorageForItem(){
 
 function fillCartData(image, name, price, quantity){
 	var item = JSON.parse(localStorage.getItem('2053266'));
+	console.log(item.name);
 	if(item) {
 		image.src = item.image;
 		name.textContent = item.name;
