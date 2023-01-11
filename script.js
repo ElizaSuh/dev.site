@@ -10,53 +10,54 @@ if (root.querySelector(".product-in-cart.no-items-found")) {
 }
 
 if (checkStorageForItem()) {
-	var image = productInCart.querySelector("img");
+	var sku = button.getAttribute("sku");
 	var title = productInCart.querySelector(".name");
 	var price = productInCart.querySelector(".price");
 	var quantity = productInCart.querySelector(".quantity");
-	fillCartData(image, title, price, quantity);
+	fillCartData(sku, title, price, quantity);
 	productInCart.style.setProperty("display", "flex")
 	emptyCart.style.setProperty("display", "none")
 }
 
 if (button.classList.contains("checkout")) {
 	button.addEventListener("click", () => {
-		localStorage.removeItem('2053266');
+		localStorage.removeItem('cart');
 		window.location.href="./index.html";
 	})
 } else {
+	var sku = button.getAttribute("sku");
 	button.addEventListener("click", () => {
 		if (checkStorageForItem() === null) {
-			localStorage.setItem('2053266', JSON.stringify(buildProductJson()));
+			var cart = {};
+			cart[sku] = buildProductJson(button)
+			localStorage.setItem('cart', JSON.stringify(cart));
 		} else {
-			var item = JSON.parse(localStorage.getItem('2053266'));
-			item.qty++
-			localStorage.setItem('2053266', JSON.stringify(item));
+			var cart = JSON.parse(localStorage.getItem('cart'));
+			cart[sku] ? cart[sku].qty++ : cart[sku] = buildProductJson(button);
+			localStorage.setItem('cart', JSON.stringify(cart));
 		}
 
 
 	})
 }
 
-function buildProductJson(){
+function buildProductJson(el){
 	return {
-		"image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-		"name": "EOS 500D body",
-		"price": "1695.36",
+		"name": el.getAttribute("name"),
+		"price": el.getAttribute("price"),
 		"qty" : 1
 	}
 }
 
 function checkStorageForItem(){
-	return localStorage.getItem('2053266');
+	return localStorage.getItem('cart');
 }
 
-function fillCartData(image, title, price, quantity){
-	var item = JSON.parse(localStorage.getItem('2053266'));
-	if(item) {
-		image.src = item.image;
-		title.textContent = item.name;
-		price.textContent = item.price;
-		quantity.textContent = item.qty;
+function fillCartData(sku, title, price, quantity){
+	var item = JSON.parse(localStorage.getItem('cart'));
+	if(cart) {
+		title.textContent = cart[sku].name;
+		price.textContent = cart[sku].price;
+		quantity.textContent = cart[sku].qty;
 	}
 }
