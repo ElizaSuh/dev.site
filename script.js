@@ -54,7 +54,7 @@ function checkStorageForItem(){
 }
 
 function fillCartData(sku, title, price, quantity){
-	var item = JSON.parse(localStorage.getItem('cart'));
+	var cart = JSON.parse(localStorage.getItem('cart'));
 	if(cart) {
 		title.textContent = cart[sku].name;
 		price.textContent = cart[sku].price;
