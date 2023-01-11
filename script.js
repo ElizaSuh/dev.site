@@ -9,7 +9,7 @@ if (root.querySelector(".product-in-cart.no-items-found")) {
 	var emptyCart = root.querySelector(".product-in-cart.no-items-found")
 }
 
-if (checkStorageForItem) {
+if (checkStorageForItem()) {
 	var image = productInCart.querySelector("img");
 	var name = productInCart.querySelector(".name");
 	var price = productInCart.querySelector(".price");
