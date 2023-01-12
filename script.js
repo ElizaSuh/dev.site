@@ -62,7 +62,7 @@ function fillCartData(){
 			quantity.textContent = cart[product].qty;
 
 			appendNewNode(newEl);
-		}
+		})
 	}
 }
 
