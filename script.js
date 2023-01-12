@@ -9,15 +9,14 @@ if (window.location.href.includes("cart")) {
 // 	fill cart with stored data
 	if (checkStorageForItem()) {
 		fillCartData();
-		emptyCart.style.setProperty("display", "none")
+		emptyCart.style.setProperty("display", "none");
+		// 	actions upon checkout
+		button.addEventListener("click", () => {
+			firePurchaseEvent();
+			localStorage.removeItem('cart');
+			window.location.href="./index.html";
+		})
 	}
-	
-// 	clear cart after checkout
-	button.addEventListener("click", () => {
-		firePurchaseEvent();
-		localStorage.removeItem('cart');
-		window.location.href="./index.html";
-	})
 } 
 
 // product page logic
