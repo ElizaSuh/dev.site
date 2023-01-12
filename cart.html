@@ -147,6 +147,7 @@
 		  if (typeof CS_CONF === 'undefined') {
 			  console.log("setPath")
 		    window._uxa.push(['setPath', window.location.pathname+window.location.hash.replace('#','?__')]);
+		    window._uxa.push(['trackPageview', window.location.pathname+window.location.hash.replace('#','?__')]);
 		    var mt = document.createElement("script"); mt.type = "text/javascript"; mt.async = true;
 		    mt.src = "//t.contentsquare.net/uxa/a6a1ad482f708.js";
 		    document.getElementsByTagName("head")[0].appendChild(mt);
