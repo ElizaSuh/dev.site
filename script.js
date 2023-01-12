@@ -14,6 +14,7 @@ if (window.location.href.includes("cart")) {
 	
 // 	clear cart after checkout
 	button.addEventListener("click", () => {
+		firePurchaseEvent();
 		localStorage.removeItem('cart');
 		window.location.href="./index.html";
 	})
@@ -34,37 +35,9 @@ else if (window.location.href.includes("product")){
 			cart[sku] ? cart[sku].qty++ : cart[sku] = buildProductJson(button);
 			localStorage.setItem('cart', JSON.stringify(cart));
 		}
-
-
+		fireAddToCartEvent(button);
 	})
 }
-
-// if (window.location.href.includes("cart") && checkStorageForItem()) {
-// 	fillCartData();
-// 	emptyCart.style.setProperty("display", "none")
-// }
-
-// if (button.classList.contains("checkout")) {
-// 	button.addEventListener("click", () => {
-// 		localStorage.removeItem('cart');
-// 		window.location.href="./index.html";
-// 	})
-// } else {
-// 	var sku = button.getAttribute("sku");
-// 	button.addEventListener("click", () => {
-// 		if (checkStorageForItem() === null) {
-// 			var cart = {};
-// 			cart[sku] = buildProductJson(button)
-// 			localStorage.setItem('cart', JSON.stringify(cart));
-// 		} else {
-// 			var cart = JSON.parse(localStorage.getItem('cart'));
-// 			cart[sku] ? cart[sku].qty++ : cart[sku] = buildProductJson(button);
-// 			localStorage.setItem('cart', JSON.stringify(cart));
-// 		}
-
-
-// 	})
-// }
 
 function buildProductJson(el){
 	return {
@@ -103,4 +76,44 @@ function createNewNode(){
 function appendNewNode(node){
 	productInCart.parentElement.appendChild(node);
 	node.style.setProperty("display", "flex")
+}
+
+function firePurchaseEvent(){
+  var total = 0;
+  var cartStatus = [];
+  var cart = JSON.parse(localStorage.getItem("cart"));
+
+  Object.keys(cart).forEach(item => {
+    total += cart[item].price * cart[item].qty
+
+    cartStatus.push({
+      productId: item,
+      quantity: cart[item].qty,
+      itemPrice: cart[item].price,
+    })
+  })
+
+  DY.API("event", {
+    name: "Purchase",
+    properties: {
+      uniqueTransactionId: Math.floor(Math.random()*10e20),
+      dyType: "purchase-v1",
+      value: total,
+      currency: "EUR",
+      cart: cartStatus
+    }
+  });
+}
+
+function fireAddToCartEvent(button){
+	DY.API("event", {
+	  name: "Add to Cart",
+	  properties: {
+	    dyType: "add-to-cart-v1",
+	    value: button.getAttribute("price"),
+	    currency: "EUR",
+	    productId: button.getAttribute("sku"),
+	    quantity: 1
+	  }
+	});
 }
