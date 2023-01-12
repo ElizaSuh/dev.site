@@ -10,12 +10,7 @@ if (root.querySelector(".product-in-cart.no-items-found")) {
 }
 
 if (checkStorageForItem()) {
-	var sku = button.getAttribute("sku");
-	var title = productInCart.querySelector(".name");
-	var price = productInCart.querySelector(".price");
-	var quantity = productInCart.querySelector(".quantity");
-	fillCartData(sku, title, price, quantity);
-	productInCart.style.setProperty("display", "flex")
+	fillCartData();
 	emptyCart.style.setProperty("display", "none")
 }
 
@@ -53,13 +48,29 @@ function checkStorageForItem(){
 	return localStorage.getItem('cart');
 }
 
-function fillCartData(sku, title, price, quantity){
-	console.log(sku);
+function fillCartData(){
 	var cart = JSON.parse(localStorage.getItem('cart'));
-	console.log(cart);
 	if(cart) {
-		title.textContent = cart[sku].name;
-		price.textContent = cart[sku].price;
-		quantity.textContent = cart[sku].qty;
+		Object.keys(cart).forEach(product => {
+			var newEl = createNewNode();
+			var title = newEl.querySelector(".name");
+			var price = newEl.querySelector(".price");
+			var quantity = newEl.querySelector(".quantity");
+
+			title.textContent = cart[product].name;
+			price.textContent = cart[product].price;
+			quantity.textContent = cart[product].qty;
+
+			appendNewNode(newEl);
+		}
 	}
+}
+
+function createNewNode(){
+	return productInCart.cloneNode(true)
+}
+
+function appendNewNode(node){
+	productInCart.parentElement.appendChild(node);
+	node.style.setProperty("display", "flex")
 }
