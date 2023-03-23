@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Email validator</title>
+  <style type="text/css">
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    #container {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 40px 0;
+    }
+    #left{
+      width: 30%;
+    }
+    #left div {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    #left div input {
+      width: 50%;
+    }
+    #right{
+      width: 40%;
+    }
+    #title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    #update {
+      margin-top: 20px;
+      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      height: 40px;
+    }
+    #update:hover {
+      cursor: pointer;
+      background-color: #e5e5e5;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="left">
+      <div id="title">Variables</div>
+      <div id="input-section">Section ID : <input value="9877903"></input></div>
+      <div id="input-campaign-id">Campaign ID: <input value="1124834"></input></div>
+      <div id="input-block-id">Block ID: <input value="1124833"></input></div>
+      <div id="input-locale">Locale: <input value="de_DE"></input></div>
+      <div id="input-skus">Reference SKUs: <input value="4063537425674,4063535223647"></input></div>
+      <button id="update">Update view</button>
+    </div>
+    <div id="right">
+      <div id="title">Email preview</div>
+      <!--Start Recommendation Block 1 -->
+      <div style="padding: 20px; box-sizing: border-box;">
+        <table style="width: 100%; border-spacing: 0;" class="dy-recommendation-EUR  Similarity - Recommendation Block 1">
+          <tr>
+            <td style="display: inline-block; padding: 0; padding-top: 0;
+            margin-right: 4.3478260869565215%; line-height: 0; width: 47.82608695652174%;">
+              <a data-slot-id="1" href="">
+                <img
+                src=""
+                style="width:100%; height:auto;"/>
+              </a>
+            </td>
+            <td style="display: inline-block; padding: 0; padding-top: 0;
+            margin-right: 0; line-height: 0; width: 47.82608695652174%;">
+              <a data-slot-id="2" href="">
+                <img
+                src=""
+                style="width:100%; height:auto;"/>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="display: inline-block; padding: 0; padding-top: 4.3478260869565215%;
+            margin-right: 4.3478260869565215%; line-height: 0; width: 47.82608695652174%;">
+              <a data-slot-id="3" href="">
+                <img
+                src=""
+                style="width:100%; height:auto;"/>
+              </a>
+            </td>
+            <td style="display: inline-block; padding: 0; padding-top: 4.3478260869565215%;
+            margin-right: 0; line-height: 0; width: 47.82608695652174%;">
+              <a data-slot-id="4" href="">
+                <img
+                src=""
+                style="width:100%; height:auto;"/>
+              </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--End Recommendation Block 1 -->
+  </div>
+</div>
+<script type="text/javascript">
+  var rootInput = document.getElementById("left");
+  var rootDisplay = document.getElementById("right");
+  var links = [].slice.call(rootDisplay.querySelectorAll("a"));
+  var images = [].slice.call(rootDisplay.querySelectorAll("img"));
+  var button = document.getElementById("update");
+
+  // input collection
+  var sectionEl = document.querySelector("#input-section input");
+  var campaignIdEl = document.querySelector("#input-campaign-id input");
+  var blockIdEl = document.querySelector("#input-block-id input");
+  var localeEl = document.querySelector("#input-locale input");
+  var skusEl = document.querySelector("#input-skus input");
+  var version = 1
+
+  button.addEventListener("click", injectInput);
+
+  function collectInput() {
+    return {
+      section : sectionEl.value,
+      campaignId : campaignIdEl.value,
+      blockId : blockIdEl.value,
+      locale : localeEl.value,
+      skus : skusEl.value
+    }
+  }
+
+  function injectInput(){
+    var newData = collectInput();
+
+    var linkUrl = [
+      "https://em-eu.dynamicyield.com/v1/email/rcom/click/",
+      newData.section+"/",
+      newData.campaignId+"/",
+      newData.blockId+"?",
+      "slot_id=000&",
+      "cuid=000&",
+      "cuid_type=hashedCustomerId&",
+      "locale="+newData.locale+"&",
+      "version="+version+"&",
+      "tag_ids="+newData.blockId+"&",
+      "email_context_"+newData.blockId+"="+newData.skus
+    ]
+    var imageUrl = [
+      "https://em-eu.dynamicyield.com/v1/email/rcom/image/",
+      newData.section+"/",
+      newData.campaignId+"/",
+      newData.blockId+"?",
+      "slot_id=000&",
+      "cuid=000&",
+      "cuid_type=hashedCustomerId&",
+      "locale="+newData.locale+"&",
+      "version="+version+"&",
+      "tag_ids="+newData.blockId+"&",
+      "email_context_"+newData.blockId+"="+newData.skus
+    ]
+
+    links.forEach((link,index) => {
+      linkUrl[4] = "slot_id="+(index+1)+"&";
+      link.href = linkUrl.join("");
+    })
+
+    images.forEach((image, index) => {
+      imageUrl[4] = "slot_id="+(index+1)+"&";
+      image.src = imageUrl.join("");
+    })
+
+    version++;
+  }
+
+  function updateView() {
+
+  }
+</script>
+</body>
+</html>
