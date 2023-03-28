@@ -53,6 +53,7 @@
   <div id="container">
     <div id="left">
       <div id="title">Variables</div>
+      <div id="input-region">Region ("-eu" for EU, empty for US): <input value="-eu"></input></div>
       <div id="input-section">Section ID : <input value="9878137"></input></div>
       <div id="input-campaign-id">Campaign ID: <input value="1145397"></input></div>
       <div id="input-block-id">Block ID: <input value="1145396"></input></div>
@@ -114,6 +115,7 @@
   var button = document.getElementById("update");
 
   // input collection
+  var regionEl = document.querySelector("#input-region input");
   var sectionEl = document.querySelector("#input-section input");
   var campaignIdEl = document.querySelector("#input-campaign-id input");
   var blockIdEl = document.querySelector("#input-block-id input");
@@ -125,6 +127,7 @@
 
   function collectInput() {
     return {
+      region :  regionEl.value,
       section : sectionEl.value,
       campaignId : campaignIdEl.value,
       blockId : blockIdEl.value,
@@ -137,7 +140,10 @@
     var newData = collectInput();
 
     var linkUrl = [
-      "https://em-eu.dynamicyield.com/v1/email/rcom/click/",
+//       "https://em-eu.dynamicyield.com/v1/email/rcom/click/",
+      "https://em",
+      newData.region,
+      ".dynamicyield.com/v1/email/rcom/click/",
       newData.section+"/",
       newData.campaignId+"/",
       newData.blockId+"?",
@@ -150,7 +156,10 @@
       "email_context_"+newData.blockId+"="+newData.skus
     ]
     var imageUrl = [
-      "https://em-eu.dynamicyield.com/v1/email/rcom/image/",
+//       "https://em-eu.dynamicyield.com/v1/email/rcom/image/",
+      "https://em",
+      newData.region,
+      ".dynamicyield.com/v1/email/rcom/image/",
       newData.section+"/",
       newData.campaignId+"/",
       newData.blockId+"?",
@@ -164,12 +173,12 @@
     ]
 
     links.forEach((link,index) => {
-      linkUrl[4] = "slot_id="+(index+1)+"&";
+      linkUrl[6] = "slot_id="+(index+1)+"&";
       link.href = linkUrl.join("");
     })
 
     images.forEach((image, index) => {
-      imageUrl[4] = "slot_id="+(index+1)+"&";
+      imageUrl[6] = "slot_id="+(index+1)+"&";
       image.src = imageUrl.join("");
     })
 
