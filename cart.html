@@ -156,7 +156,10 @@
 		  }
 		})();
 		
-		parseJSON(sessionStorage.getItem("error"))
+		// Errors
+		parseJSON(sessionStorage.getItem("error"));
+		var title = document.querySelector("#three h2");
+		title.style.setProperty("color","green");
 	</script>
 </body>
 
