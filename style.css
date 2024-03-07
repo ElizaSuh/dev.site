@@ -87,12 +87,12 @@ body {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 
 .product-wrapper.category .product {
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .product-wrapper .product:hover {
