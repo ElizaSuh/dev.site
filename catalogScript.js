@@ -70,12 +70,14 @@ products.forEach(function(product){
 	var name = newProduct.querySelector(".name");
 	var price = newProduct.querySelector(".price span");
 
+	newProduct.classList.remove("template");
 	newProduct.setAttribute("data-sku", product["SKU"]);
 	image.src = product["Image"];
 	name.textContent = product["Product"]
 	price.textContent = product["Price"]
 
 	template.parentElement.appendChild(newProduct);
+	template.remove();
 })
 
 
