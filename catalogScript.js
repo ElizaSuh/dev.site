@@ -77,18 +77,6 @@ products.forEach(function(product){
 	price.textContent = product["Price"]
 
 	template.parentElement.appendChild(newProduct);
-	template.remove();
-})
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
+template.remove();
