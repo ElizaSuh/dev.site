@@ -76,7 +76,10 @@ products.forEach(function(product){
 	name.textContent = product["Product"]
 	price.textContent = product["Price"]
 
-	template.parentElement.appendChild(newProduct);
+	// template.parentElement.appendChild(newProduct);
+	setTimeout(function() {
+	    template.parentElement.appendChild(newProduct);
+	}, 100);
 });
 
 template.remove();
