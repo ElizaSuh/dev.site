@@ -65,20 +65,21 @@ var products = [
 var template = document.querySelector(".product.template");
 
 products.forEach(function(product){
-	var newProduct = template.cloneNode(true);
-	var image = newProduct.querySelector("img");
-	var name = newProduct.querySelector(".name");
-	var price = newProduct.querySelector(".price span");
-
-	newProduct.classList.remove("template");
-	newProduct.setAttribute("data-sku", product["SKU"]);
-	image.src = product["Image"];
-	name.textContent = product["Product"]
-	price.textContent = product["Price"]
-
-	// template.parentElement.appendChild(newProduct);
 	setTimeout(function() {
-	    template.parentElement.appendChild(newProduct);
+		var newProduct = template.cloneNode(true);
+		var image = newProduct.querySelector("img");
+		var name = newProduct.querySelector(".name");
+		var price = newProduct.querySelector(".price span");
+	
+		newProduct.classList.remove("template");
+		newProduct.setAttribute("data-sku", product["SKU"]);
+		image.src = product["Image"];
+		name.textContent = product["Product"]
+		price.textContent = product["Price"]
+	
+		// template.parentElement.appendChild(newProduct);
+	
+		template.parentElement.appendChild(newProduct);
 	}, 100);
 });
 
