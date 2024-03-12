@@ -83,4 +83,4 @@ products.forEach(function(product){
 	}, 100);
 });
 
-template.remove();
+template.setAttribute("style", "display:none");
