@@ -80,7 +80,6 @@ products.forEach(function(product){
 		// template.parentElement.appendChild(newProduct);
 	
 		template.parentElement.appendChild(newProduct);
+		newProduct.setAttribute("style", "display:flex");
 	}, 100);
 });
-
-template.setAttribute("style", "display:none");
