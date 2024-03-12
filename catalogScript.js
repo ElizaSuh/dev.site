@@ -64,8 +64,8 @@ var products = [
 
 var template = document.querySelector(".product.template");
 
-products.forEach(function(product){
-	setTimeout(function() {
+setTimeout(function() {
+	products.forEach(function(product){
 		var newProduct = template.cloneNode(true);
 		var image = newProduct.querySelector("img");
 		var name = newProduct.querySelector(".name");
@@ -81,6 +81,5 @@ products.forEach(function(product){
 	
 		template.parentElement.appendChild(newProduct);
 		newProduct.setAttribute("style", "display:flex");
-		console.log("print")
-	}, 1000);
-});
+	});
+}, 1500);
