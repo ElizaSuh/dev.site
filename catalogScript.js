@@ -81,5 +81,5 @@ products.forEach(function(product){
 	
 		template.parentElement.appendChild(newProduct);
 		newProduct.setAttribute("style", "display:flex");
-	}, 100);
+	}, 300);
 });
