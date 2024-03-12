@@ -1,4 +1,4 @@
-var products = [
+[
     {
         "SKU": "SKU34567",
         "onSale": true,
@@ -24,4 +24,4 @@ var products = [
         "onSale": true,
         "Price": 30.99
     }
-];
+]
