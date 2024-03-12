@@ -1,0 +1,27 @@
+var products = [
+    {
+        "SKU": "SKU34567",
+        "onSale": true,
+        "Price": 25.99
+    },
+    {
+        "SKU": "SKU56789",
+        "onSale": true,
+        "Price": 59.99
+    },
+    {
+        "SKU": "SKU78901",
+        "onSale": true,
+        "Price": 19.99
+    },
+    {
+        "SKU": "SKU89012",
+        "onSale": true,
+        "Price": 32.99
+    },
+    {
+        "SKU": "SKU01234",
+        "onSale": true,
+        "Price": 30.99
+    }
+];
